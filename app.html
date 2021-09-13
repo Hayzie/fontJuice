@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+        :root {
+            --default-font-family: 'Urbanist', 'Montserrat', 'Roboto Mono', 'Convergence', Verdana, Geneva, Tahoma, sans-serif;
+            --default-code-font: 'Inconsolata', 'Fira Code';
+            --tool-bg: rgb(94, 94, 94);
+            --tool-font-size: 12px;
+            --tool-color: rgb(217, 217, 217);
+            --button-color: rgba(255, 255, 255, 0.9);
+            --tool-border-color: rgb(51, 51, 51);
+            --pane-background: #404040;
+            --tool-border-radius: 3px;
+            --body-bg-color: rgb(7, 6, 6);
+            --text-box-bg-color: #2b2b2b;
+            --input-focus-border-color: #3490eb;
+            --button-bg-color-default: #3490eb;
+            --input-focus-border-colorV2: mediumaquamarine;
+            --button-bg-green: rgba(42, 217, 134, 0.6);
+            --hero-color-1: #009f6e;
+            --hero-color-2: #00e6e7;
+            --default-white-color: white;
+        }
+
+        * {
+            font-family: var(--default-font-family);
+            color: var(--tool-color);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #main-div {
+            height: auto;
+            height: 60%;
+            margin: 0 auto;
+            margin-top: 10vh;
+            min-width: 484px;
+        }
+
+
+        .slider {
+            -webkit-appearance: none;
+            height: 4px;
+            cursor: pointer;
+            background: rgb(94, 94, 94);
+            outline: none;
+            opacity: 0.7;
+            margin-top: .5rem;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        .slider:hover {
+            opacity: 1;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            background: rgb(217, 217, 217);
+            cursor: pointer;
+        }
+
+
+
+        #main-div {
+            height: auto;
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 90px;
+        }
+
+        .tool {
+            margin-bottom: 6px;
+        }
+
+        #row_1 {
+            display: flex;
+        }
+
+        #row_2 {
+            display: flex;
+            background-color: var(--pane-background);
+            height: 100%;
+        }
+
+        .tool-row {
+            display: flex;
+            margin-left: 80px;
+        }
+
+        .tool-input {
+            float: right;
+            background-color: var(--tool-bg);
+            font-size: var(--tool-font-size);
+            display: inline;
+            padding: 4px;
+            width: auto;
+            margin: 4px;
+            border-radius: var(--tool-border-radius);
+            cursor: pointer;
+            border-style: solid;
+            border-width: 1px;
+            border-color: rgb(51, 51, 51);
+        }
+
+        #result {
+            margin-top: 0;
+            font-weight: normal;
+            font-family: Arial;
+            font-size: 16px;
+            letter-spacing: normal;
+            word-spacing: normal;
+            font-weight: normal;
+            font-style: normal;
+            font-variant: normal;
+            text-transform: none;
+        }
+
+        .tool-label {
+            float: left;
+            font-size: var(--tool-font-size);
+        }
+
+        #tool-div {
+            padding: 1em;
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+            align-items: flex-start;
+            background: var(--pane-background);
+            border-top-color: var(--tool-color);
+            border-top-width: 5px;
+            border-style: solid;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            border-left: 0;
+            border-bottom: 0;
+            border-right: 1px solid var(--tool-border-color);
+
+        }
+
+        #result-div {
+            padding: 4rem;
+            padding-right: 5rem;
+            width: 80%;
+            max-height: 100%;
+            overflow-y: scroll;
+            /* overflow-x: hidden;*/
+            background: var(--pane-background);
+        }
+
+        select {
+            background: var(--tool-bg);
+            font-family: var(--default-font-family);
+            outline: 0px;
+            font-size: var(--tool-font-size);
+            padding: .5em;
+            border-radius: var(--tool-border-radius);
+            color: var(--tool-color);
+            border-width: 1px;
+            border-style: solid;
+            border-color: var(--tool-border-color);
+        }
+
+        select:focus {
+            border: 2px solid var(--input-focus-border-color);
+        }
+
+
+
+        footer {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        body::-webkit-scrollbar {
+            width: .5vw;
+        }
+
+        body::-webkit-scrollbar-track {
+            background-color: var(--text-box-bg-color);
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: var(--tool-bg);
+            border-radius: 4px;
+        }
+
+        #result-div::-webkit-scrollbar {
+            width: .5vw;
+
+        }
+
+        #result-div::-webkit-scrollbar-track {
+            background-color: var(--text-box-bg-color);
+        }
+
+        #result-div::-webkit-scrollbar-thumb {
+            background-color: var(--tool-bg);
+            border-radius: 4px;
+        }
+
+
+
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 16px;
+            text-align: center;
+            background: var(--body-bg-color);
+            letter-spacing: 1px;
+        }
+
+        textarea {
+            background-color: var(--tool-bg);
+            margin: 5px;
+            padding-left: 8px;
+            padding-top: 5px;
+            border: none;
+            border-radius: var(--tool-border-radius);
+            outline: none;
+            resize: none;
+            background: var(--tool-border-color);
+        }
+
+        .css-box {
+            width: 70%;
+        }
+
+        .css-box>.default-label {
+            float: left;
+            padding-left: 1rem;
+        }
+
+        .css-code-tools {
+            width: 30%;
+            padding: 10px;
+
+        }
+
+        #dump-css {
+            /*font-family: var(--default-code-font);*/
+            font-size: 16px;
+            width: 100%;
+        }
+
+        textarea:focus {
+            border: 2px solid var(--input-focus-border-color);
+
+        }
+
+        .border-warp {
+            position: relative;
+            padding: 1px;
+        }
+
+        .nav {
+            background: mediumaquamarine;
+            background: linear-gradient(to right, var(--hero-color-1), var(--hero-color-2));
+            margin-top: 0px;
+            width: 100%;
+            height: 64px;
+        }
+
+        .nav-bar-nav ul li {
+            color: var(--default-white-color);
+            margin: 0;
+            display: inline;
+            text-decoration: none;
+            margin-right: 2rem;
+            float: left;
+            font-size: 1.5rem;
+        }
+
+        li {
+            opacity: .7;
+            cursor: pointer;
+        }
+
+        li:hover {
+            opacity: 1;
+        }
+
+        .nav-bar-nav ul {
+            margin: 0;
+        }
+
+        .nav-bar-nav {
+            width: 100%;
+            padding: 10px;
+        }
+
+        /*App name style*/
+        #app-name {
+            font-weight: bold;
+        }
+
+        .copy-to-clipboard {
+            background: var(--button-bg-color-default);
+            border-radius: var(--tool-border-radius);
+            color: var(--button-color);
+            padding: 5px;
+            cursor: pointer;
+            width: 20vw;
+            margin-left: 2rem;
+            margin-top: 1rem;
+        }
+
+        .button {
+            opacity: .7;
+        }
+
+        .button:hover {
+            opacity: 1;
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            margin-top: .5rem;
+            margin-bottom: .5rem;
+            background: var(--tool-border-color);
+        }
+
+        input[type=radio] {
+            display: none;
+        }
+
+        input[type=radio]:checked+.lbl-radio {
+            border: 2px solid var(--button-bg-color-default);
+        }
+
+        .color-input {
+            background-color: var(--tool-bg);
+            border-radius: var(--tool-border-radius);
+        }
+
+        @media (max-width: 1024px) {
+            #main-div {
+                width: 100%;
+            }
+
+            #tool-div {
+                width: 100%;
+            }
+
+            #result-div {
+                width: 100%;
+            }
+
+        }
+
+        @media (max-width: 802px) {
+            #row_1 {
+                flex-direction: column;
+            }
+
+            #tool-div {
+                width: 100%;
+                padding: 0;
+                padding-top: 2rem;
+                align-items: center;
+            }
+
+            #result-div {
+                padding: 0;
+            }
+        }
+
+        @media (max-width:600px) {
+
+            #main-div {
+                margin: 0;
+                width: 100%;
+            }
+
+            #row_1 {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            #result-div {
+                width: 100%;
+                padding: 0;
+            }
+
+            #tool-div {
+                align-items: center;
+                padding: 0;
+                width: 100%;
+                padding-top: 2rem;
+            }
+
+            #row_2 {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav">
+        <nav-bar class="nav-bar-nav">
+            <ul>
+                <li id="app-name">
+                    FONTJUICE
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    Gihub
+                </li>
+                <li>
+                    About
+                </li>
+            </ul>
+        </nav-bar>
+    </nav>
+    <header>
+        <h1>Generate and copy css properties of text</h1>
+    </header>
+    <div id="main-div">
+        <div id="row_1">
+            <div id="tool-div">
+                <label class="default-label">Your text</label>
+                <div class="border-warp">
+                    <textarea class="tool" type="text" id="text-input" rows="3" cols="25" maxlength="55"
+                        oninput="textAreaChange()"
+                        placeholder="type anything">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</textarea>
+                </div>
+                <div class="tool">
+                    <div class="tool-label">Family</div>
+                    <div class="tool-row">
+                        <select onchange="changeFontStyle(this)">
+                            <option>Arial</option>
+                            <option>Verdana</option>
+                            <option>Times New Roman</option>
+                            <option>Fantacy</option>
+                            <option>Cursive</option>
+                            <option>Calibri</option>
+                            <option>Cambria</option>
+                            <option>Cambria Math</option>
+                            <option>Comic Sans MS</option>
+                            <option>Constantia</option>
+                            <option>Georgia</option>
+                            <option>Lucida Console</option>
+                            <option>Segoe UI</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool">
+                    <div class="tool-label">Color</div>
+                    <div class="tool-row">
+                        <input id="color-picker" onchange="changefontColor('color-picker')" type="color"
+                            class="color-input">
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="tool">
+                    <div class="tool-label">Size</div>
+                    <div class="tool-row">
+                        <input oninput="changeFont()" type="range" min="1" step="0.2" max="96" value="16" class="slider"
+                            id="fontRange">
+                    </div>
+                </div>
+
+
+                <div class="tool">
+                    <div class="tool-label">Letter sp</div>
+                    <div class="tool-row">
+                        <input oninput="changeLetterSpacing()" type="range" min="-5" step="0.2" max="6" value="1"
+                            class="slider" id="letterRange">
+                    </div>
+                </div>
+                <div class="tool">
+                    <div class="tool-label">Word sp</div>
+                    <div class="tool-row">
+                        <input oninput="changeWordSpacing()" type="range" min="-5" step="0.2" max="6" value="1"
+                            class="slider" id="wordRange">
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="tool">
+                    <div class="tool-label">Weight</div>
+                    <div class="tool-row">
+                        <div>
+                            <input type="radio" onclick="setWeightToNormal()" id="weight-normal" name="weight"
+                                value="normal" checked>
+                            <label class="tool-input lbl-radio button" for="weight-normal">Normal</label>
+                        </div>
+
+                        <div>
+                            <input type="radio" onclick="setWeightToBold()" id="weight-bold" name="weight" value="Bold">
+                            <label class="tool-input lbl-radio button" for="weight-bold">Bold</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool">
+                    <div class="tool-label">Style</div>
+                    <div class="tool-row">
+                        <div>
+                            <input type="radio" onclick="setStyleToNormal()" id="style-normal" name="style"
+                                value="normal" checked>
+                            <label class="tool-input lbl-radio button" for="style-normal">Normal</label>
+                        </div>
+
+                        <div>
+                            <input type="radio" onclick="setStyleToItalic()" id="style-italic" name="style"
+                                value="normal">
+                            <label class="tool-input lbl-radio button" for="style-italic">Italic</label>
+                        </div>
+
+                        <div>
+                            <input type="radio" onclick="setStyleToOblique()" id="style-oblique" name="style"
+                                value="normal">
+                            <label class="tool-input lbl-radio button" for="style-oblique">Oblique</label>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="tool">
+                    <div class="tool-label">Variant</div>
+                    <div class="tool-row">
+                        <div>
+                            <input type="radio" onclick="setVariantToNormal()" id="variant-normal" name="variant"
+                                value="normal" checked>
+                            <label class="tool-input lbl-radio button" for="variant-normal">Normal</label>
+                        </div>
+
+                        <div>
+                            <input type="radio" onclick="setVariantToSmallCaps()" id="variant-smallcaps" name="variant"
+                                value="normal">
+                            <label class="tool-input lbl-radio button" for="variant-smallcaps">Small caps</label>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="tool">
+                    <div class="tool-label">Transform</div>
+                    <div class="tool-row">
+
+                        <div>
+                            <input type="radio" onclick="setTransformNone()" id="transform-none" name="tranform"
+                                value="normal" checked>
+                            <label class="tool-input lbl-radio button" for="transform-none">None</label>
+                        </div>
+                        <div>
+                            <input type="radio" onclick="setTransformUpperCase()" id="transform-upper" name="tranform"
+                                value="normal" checked>
+                            <label class="tool-input lbl-radio button" for="transform-upper">Upper case</label>
+                        </div>
+                        <div>
+                            <input type="radio" onclick="setTransformLowerCase()" id="transform-lower" name="tranform"
+                                value="normal" checked>
+                            <label class="tool-input lbl-radio button" for="transform-lower">Lower case</label>
+                        </div>
+
+                        <div>
+                            <input type="radio" onclick="setTransformCapitalize()" id="transform-caps" name="tranform"
+                                value="normal" checked>
+                            <label class="tool-input lbl-radio button" for="transform-caps">Capitalize</label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="divider"></div>
+            </div>
+
+            <div id="result-div">
+                <p id="result">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+
+        <div id="row_2">
+            <d class="css-box">
+                <label class="default-label">CSS</label>
+                <textarea id="dump-css" rows="11">css file</textarea>
+            </d>
+            <div class="css-code-tools">
+                <div id="btnCopy" class="copy-to-clipboard button">
+                    Copy to clipboard
+                </div>
+            </div>
+        </div>
+    </div>
+    <section>
+        <h2>FONTJUICE</h2>
+        <p class="info-content">FontJuice allows you to generate css properties of a text element, properties include
+            Font family, font size, text transform and more </p>
+    </section>
+    <footer>
+        FontJuice version 1.0 &copy; 2021
+    </footer>
+    <script>
+        let fontSize = 16;
+        let letterSpacing = 0;
+        let wordSpacing = 1;
+
+
+        function dumpCssText(element) {
+            const cssFile = document.querySelector('#dump-css');
+            const result = document.querySelector('#result');
+            //cssFile.innerHTML = getComputedStyle(result);
+            //console.log(getComputedStyle(result));
+            cssFile.innerHTML = `font-family: ${result.style.fontFamily}; \ncolor: ${result.style.color}; \nfont-size: ${result.style.fontSize}; \nletter-spacing: ${result.style.letterSpacing}; \nword-spacing: ${result.style.wordSpacing}; \nfont-weight: ${result.style.fontWeight}; \nfont-style: ${result.style.fontStyle}; \nfont-variant: ${result.style.fontVariant}; \ntext-transform: ${result.style.textTransform};`;
+        }
+
+        document.querySelector('#btnCopy').addEventListener('click', () => {
+            const cssFile = document.querySelector('#dump-css');
+            cssFile.select();
+            document.execCommand('copy');
+            document.querySelector('#btnCopy').innerHTML = "Copied ✔";
+            document.querySelector('#btnCopy').style.background = "rgba(42, 217, 134, 0.6)";
+            timeOut = setTimeout(() => {
+                document.querySelector('#btnCopy').innerHTML = "Copy to clipboard";
+                document.querySelector('#btnCopy').style.background = "var(--button-bg-color-default)";
+            }, 1000);
+
+        })
+
+        function changeFont() {
+
+            fontSize = document.querySelector('#fontRange').value;
+            document.querySelector('#result').style.fontSize = `${fontSize}px`;
+            dumpCssText(document.querySelector('#result'));
+
+        }
+
+        function changefontColor(colorPicker) {
+            color = document.getElementById(colorPicker).value;
+            console.log(color);
+            document.querySelector('#result').style.color = `${color}`;
+            dumpCssText(document.querySelector('#result'));
+        }
+
+        function changeLetterSpacing() {
+            letterSpacing = document.querySelector('#letterRange').value;
+            document.querySelector('#result').style.letterSpacing = `${letterSpacing}px`;
+            dumpCssText(document.querySelector('#result'));
+        }
+
+        function setWeightToNormal() {
+            document.querySelector('#result').style.fontWeight = 'normal';
+            dumpCssText(document.querySelector('#result'));
+        }
+        function setWeightToBold() {
+            document.querySelector('#result').style.fontWeight = 'Bold';
+            dumpCssText(document.querySelector('#result'));
+        }
+
+        function setStyleToNormal() {
+            document.querySelector('#result').style.fontStyle = 'normal';
+            dumpCssText(document.querySelector('#result'));
+        }
+        function setStyleToItalic() {
+            document.querySelector('#result').style.fontStyle = 'italic';
+            dumpCssText(document.querySelector('#result'));
+        }
+
+        function setStyleToOblique() {
+            document.querySelector('#result').style.fontStyle = 'oblique';
+            dumpCssText(document.querySelector('#result'));
+        }
+
+        function setVariantToNormal() {
+            document.querySelector('#result').style.fontVariant = 'normal';
+            dumpCssText(document.querySelector('#result'));
+        }
+        function setVariantToSmallCaps() {
+            document.querySelector('#result').style.fontVariant = 'small-caps';
+            dumpCssText(document.querySelector('#result'));
+        }
+
+        function setTransformNone() {
+            document.querySelector('#result').style.textTransform = 'none';
+            dumpCssText(document.querySelector('#result'));
+        }
+        function setTransformNone() {
+            document.querySelector('#result').style.textTransform = 'none';
+            dumpCssText(document.querySelector('#result'));
+        }
+        function setTransformUpperCase() {
+            document.querySelector('#result').style.textTransform = 'uppercase';
+            dumpCssText(document.querySelector('#result'));
+        }
+        function setTransformLowerCase() {
+            document.querySelector('#result').style.textTransform = 'lowercase';
+            dumpCssText(document.querySelector('#result'));
+        }
+
+        function setTransformCapitalize() {
+            document.querySelector('#result').style.textTransform = 'capitalize';
+            dumpCssText(document.querySelector('#result'));
+        }
+
+        function changeFontStyle(font) {
+
+            document.querySelector('#result').style.fontFamily = font.value;
+            dumpCssText(document.querySelector('#result'));
+        }
+
+        function changeWordSpacing() {
+            let result = document.querySelector('#result');
+            wordSpacing = document.querySelector('#wordRange').value;
+            result.style.wordSpacing = `${wordSpacing}px`;
+            dumpCssText(document.querySelector('#result'));
+        }
+
+        function textAreaChange() {
+            let text = document.querySelector("#text-input").value;
+            document.querySelector('#result').innerHTML = text;
+        }
+
+
+    </script>
+</body>
+
+</html>
