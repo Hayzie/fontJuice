@@ -87,6 +87,10 @@
             transition: opacity .2s;
         }
 
+        a {
+            text-decoration: none;
+        }
+
         .slider:hover {
             opacity: 1;
         }
@@ -100,7 +104,6 @@
             background: rgb(217, 217, 217);
             cursor: pointer;
         }
-
 
 
         #main-div {
@@ -446,15 +449,16 @@
     <nav class="nav">
         <nav-bar class="nav-bar-nav">
             <ul>
-                <li id="app-name">
-                    FONTJUICE
+                <li>
+
+                    <a id="app-name" href="#">FONTJUICE</a>
                 </li>
             </ul>
             <ul>
                 <li>
-                    Gihub
+                    <a href="https://github.com/Hayzie/">Github</a>
                 </li>
-                <li>
+                <li onclick="showAbout()">
                     About
                 </li>
             </ul>
@@ -629,7 +633,7 @@
         </div>
     </div>
     <section>
-        <h2>FONTJUICE</h2>
+        <h2> FONTJUICE</h2>
         <p class="info-content">FontJuice allows you to generate css properties of a text element, properties include
             Font family, font size, text transform and more </p>
     </section>
@@ -755,7 +759,9 @@
             let text = document.querySelector("#text-input").value;
             document.querySelector('#result').innerHTML = text;
         }
-
+        function showAbout() {
+            window.scrollTo(0, document.body.scrollHeight);
+        }
 
     </script>
 </body>
